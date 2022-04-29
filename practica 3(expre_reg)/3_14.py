@@ -1,4 +1,8 @@
 #Ejercicio 14
 #Realizá un programa que reemplace los espacios y tabulaciones por punto y coma.
 
-#no me salee
+import re
+def reemplaza_espa(string):
+    print(re.sub("\s", ";", string))                     #\s ->Un espacio, de cualquier tipo (\t\n\r\f)
+
+reemplaza_espa("fie ju  ip")
