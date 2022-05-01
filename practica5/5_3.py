@@ -9,3 +9,4 @@ class Notebook:
   def descuento(self, nro):              #voy a ingresar un nro de pocentaje, a este lo hago divido 100 y al multiplcarlo por precio, me da cuanto seria el descuento
     descuento=(nro/100)*self.precio
     return(self.precio-descuento)     #precio -descuento, me da el precio origi 
+
