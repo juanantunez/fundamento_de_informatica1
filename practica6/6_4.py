@@ -34,3 +34,4 @@ class Auto(MedioDeTransporte):
 
   def recorrer(self, km):
     self.combustible-= km/2
+

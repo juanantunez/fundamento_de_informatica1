@@ -20,4 +20,20 @@ class Golondrina:
     else:                          #de lo contrario, con energia <=10, se quedara sin energia luego de volar, por lo tanto no podra volar
       print("no tiene energia para volar") 
 
-#no se como probarlo
+#para probarlo ->si tira "None" es q puede volar, de lo contrario printea "no puede"
+
+pepa= Golondrina(100)
+pepa.comer_alpiste(3) #energia pasaria a 112 si inicial 100 y gr 3
+print(pepa.volar(3)) #quiere volar 3kms ->al ser 112>10+3 va a volar    
+print(pepa.energia) #112-13 energia q queda
+
+
+#aca hay otra prueba en la que no podra volar
+
+#pepa= Golondrina(1)
+#pepa.comer_alpiste(2) #energia pasaria a 9 si inicial 1 y gr 2
+#print(pepa.volar(3)) #quiere volar 2kms ->al NO SER ser 9>10+2 NO va a volar  ->printea que no puede  
+#print(pepa.energia) #devuelve energia que tiene y por la q no podra volar
+
+
+

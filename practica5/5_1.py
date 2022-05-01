@@ -28,6 +28,6 @@ class Perro:
     def estaDebil(self):
         return self._caricias < 2
 
-
+#este no es para probar, era solo para responder preguntas teoricas
 
 
