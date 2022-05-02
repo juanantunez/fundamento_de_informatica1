@@ -16,49 +16,70 @@
 #velocidad()
 #consumoActualPorKm(), calcula el consumo actual y lo devuelve
 
-#5 cambios |   soporta hasta 5000 rpm | velocidad=  (rpm / 100) * (0.5 + (cambio / 2)) | consumo=0,05 cada  km |si rpm>3000 : se hace *(rpm - 2500) / 500 |1ra con 500 rpm
+#5 cambios |   soporta hasta 5000 rpm | velocidad=  (rpm / 100) * (0.5 + (cambio / 2)) | consumo=0,05 cada  km |si rpm>3000 : se hace *(rpm - 2500) / 500 |1ra con 500 rpm |
+#  hay q indicar cuantos rpm sube o baja
 3
-class Taller:
-    def __init__(self, consumo, cambio, rpm):
-        self.consumo=0.05
+class Auto:
+    def __init__(self):             
+        self.consumo=0.05   #dato
         self.cambio=0
         self.rpm=0
-    def arrancar(self):
+    def arrancar(self):   
         self.cambio+=1
-        self.rpm+=500
+        self.rpm+=500   #dato
     def subirCambio(self):
-        if self.cambio <5:
+        if self.cambio <5: #max cambio es 5 
             self.cambio+=1
         else:
-            return None 
+            return None   #retorna None en caso q no se pueda
     def bajarCambio(self):
-        if self.cambio <=5:
-            self.cambio+=1
+        if self.cambio >1: #min cambio es 1
+            self.cambio-=1
         else:
             return None 
-    def subirRPM(cuantos):
-        if self.rpm <5000:
-            self.rpm+=500
+    def subirRPM(self, cantidad): #como dice enunciado, es una cant a ingresar
+        if self.rpm <=5000:
+            self.rpm+=cantidad
         else:
-            return None     
-    def bajarRPM(cuantos)
-    def velocidad():
-        return (rpm / 100) * (0.5 + (cambio / 2)
+             self.rpm= 5000    #xq es el max
+    def bajarRPM(self, cantidad):
+        if self.rpm - cantidad >=0:
+            self.rpm-=cantidad
+        else: 
+             self.rpm=0  #xq es el min
+    def velocidad(self):
+        return ((self.rpm / 100) * (0.5 + (self.cambio / 2))) #formula dato
 
-    def consumoActualPorKm()
+    def consumoActualPorKm(self):   
+        if self.rpm>3000:  #siempre q sea >3000 
+            if self.cambio==1:
+                return self.consumo*((self.rpm-2500)/500) *3 #hay q hacer consumo * cuenta correspondiente * 3(por estar en 1ra)
+            elif self.cambio==2:
+                return self.consumo*((self.rpm-2500)/500) *2 #mismo q en anterior pero *2, por estar en 2da
+            elif 3<= self.cambio <=5:
+                return self.consumo*((self.rpm-2500)/500) #aca solo consumo * cuenta correspondiente
+        elif self.cambio==1:
+            return self.consumo*3   #hace solo conusmo *3
+        elif self.cambio==2:
+            return self.consumo*2 #mismo q anterior pero *2
+        elif 3<=self.cambio<=5:
+            return self.consumo           #solo consumo 
+
+
 
 
 
 #Al ejecutar esto:
 
 #```python
-#auto1 = Auto()
-#auto1.arrancar()
-#auto1.subirRPM(3500)
-#auto1.subirCambio()
-#auto1.subirCambio()
-#auto1.subirCambio()
-#auto1.bajarCambio()
-
+auto1 = Auto()
+auto1.arrancar()
+auto1.subirRPM(3500)
+auto1.subirCambio()
+auto1.subirCambio()
+auto1.subirCambio()
+auto1.bajarCambio()
+print(auto1.velocidad())
+print(auto1.consumoActualPorKm())
 
 #la velocidad debería ser 80 y el consumo 0.15 litros/km.
