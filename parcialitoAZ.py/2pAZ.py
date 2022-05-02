@@ -20,7 +20,7 @@
 3
 class Taller:
     def __init__(self, consumo, cambio, rpm):
-        self.consumo=0
+        self.consumo=0.05
         self.cambio=0
         self.rpm=0
     def arrancar(self):

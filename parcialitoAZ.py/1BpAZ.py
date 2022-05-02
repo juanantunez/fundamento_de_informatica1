@@ -6,10 +6,13 @@
 
 import re
 def se(tex):
-    print(re.findall("aa([^c].*?)gg", tex))
-#"."->puede ser cualquier caracter "*"(una o mas)->puede haber 0 o mas d estos caracteres ->prioriza delimitadores externos
+    print(re.findall("aa([^c]*?)gg", tex))
+ "*"(una o mas)->puede haber 0 o mas d estos caracteres ->prioriza delimitadores externos
                         #al poner "?"(0 o una) ademas del "*"->prioriza los delimitadores internos
                         #y pone de cada lado los str delimitadores,toma el 1ro del 1ro y el 1ro del 2do en caso d ser mas de uno
 
                         #: [^a-d] busca cualquier carácter menos a, b, c, d. (caracteres que No estan en ese rango)
 se("ttaatatggttaacatgg")            
+
+
+#"."->puede ser cualquier caracter  NO ES NECESARIO EN ESTE EJ
