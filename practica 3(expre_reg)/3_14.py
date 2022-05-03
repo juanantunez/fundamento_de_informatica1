@@ -3,6 +3,6 @@
 
 import re
 def reemplaza_espa(string):
-    print(re.sub("\s", ";", string))                     #\s ->Un espacio, de cualquier tipo (\t\n\r\f)
+    print(re.sub(r"\s", ";", string))                     #\s ->Un espacio, de cualquier tipo (\t\n\r\f)
 
 reemplaza_espa("fie ju  ip")
