@@ -1,0 +1,46 @@
+Para rendir parcial fundamentos info:
+Una vez q seleccione nombre y entre
+Refresheo
+Toco el link
+
+Entro a desktop
+File
+Clone repository
+Url
+Copio ahi link q esta en el code 
+
+Show in finder -> me manda a la carpeta en q esta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 Acá es otra cosa q dio guille en clase
+
+
+Si eliminaste 2 metodos y luego los tenes q volver a meter, hay q volver a esas fotos
+
+Git add git commit ->es ir sacando fotos
+
+Fotos explicando pasos “F”
+F1:En pantalla principal debería aparecer a derecha repositorios, selecciono y toco clonar
+F2:para clonar y en que carpeta guardar
+F3:abro en visual studio el archivo para modificarlo
+F4:creo carpeta y archivo para mpdificar
+F5:vuelvo al desktop, comitteo y 
+F6:pusheo
+
+Tocar el “fetch origin” para actualizar cambios
+
