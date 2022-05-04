@@ -1,4 +1,4 @@
-"""
+
 Los estudiantes (como ustedes) son como cualquier persona, las cuales recuperan energía si duermen o si comen, o la gastan al hacer ejercicio, sin embargo en particular
  los estudiantes también gastan energía al estudiar y se sienten felices al aprobar algún exámen. Resumiendo, las personan pueden:
 
@@ -24,7 +24,7 @@ Elif Energía que tengo + la que recupere durmiendo(calculo con regla de 3 simpl
 Else: si pasa los 100 entre la energía que tenia y una cant horas x ej menor a 8, va devolver 100
 Cada vez que comia se le aumentaba en 10, energía max, (agregar que no puede pasar 100)      Energía q tengo +energía q gano comiendo<=100 como en el anterior def
 Clase estudiante    Por cada hora gasta 20 de energía       Si aprueba atributo ser feliz se convierte en true y te devuelve ese atributo. 
-"""
+
 
 #cuyo resultado tiene que ser:
 

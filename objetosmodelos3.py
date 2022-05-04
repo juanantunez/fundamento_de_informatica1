@@ -1,4 +1,4 @@
-"""
+
 Se está pensando en el diseño de un juego que incluye la nave espacial Enterprise. En el juego, esta nave tiene un nivel de potencia de 0 a 100, y un nivel de coraza de 0 a 20. La Enterprise puede:
 
 encontrarse con una pila atómica, en cuyo caso su potencia aumenta en 25.
@@ -29,7 +29,8 @@ Agregar al modelo de la Enterprise, la capacidad de entender estos mensajes.
 fortalezaDefensiva(), que es el máximo nivel de ataque que puede resistir, o sea, coraza más potencia.
 necesitaFortalecerse(), tiene que ser true si su coraza es 0 y su potencia es menos de 20.
 fortalezaOfensiva(), que corresponde a cuántos puntos de fuerza tendría un ataque de la Enterprise. Se calcula así: si tiene menos de 20 puntos de potencia entonces es 0, si no es (puntos de potencia - 20) / 2.
-"""
+
+
 class Enterprise:
     def __init__(self,):
         self.potencia = 50
@@ -74,7 +75,7 @@ enterprise.recibirAtaque(14)
 enterprise.encontrarEscudo()
 print(enterprise.potencia)
 print(enterprise.coraza)
-"""
+
 66
 10
-"""
+
