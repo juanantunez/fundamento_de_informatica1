@@ -1,0 +1,279 @@
+Teoria 1ras 2 guias
+fundamentos de infromatica
+#intro
+"""ctrl alt \     -> p hacer la barrita"""
+"""ej 1 mate desafio
+    mate=mate seleccionado
+    yerba=bolsa de despensa
+    yerbero=busacr yerbero
+    maceta=maceta de planta
+ 
+
+    if yerbero vacio and mate lleno:
+        vaciar mate en maceta
+        llenar yerbero
+        llenar mate con yerbero
+    elif yerbero vacio and mate vacio:
+        llenar yerbero
+        llenar mate con llervero    
+    elif yervero lleno and mate mate lleno:
+        vaciar mate en maceta 
+        llenar mate con yerbero
+    else:
+        llenar mate
+
+ej 2 y 3 no hay q hacer nada
+
+ej 4 y 5-> me dice q al tocar ctrl J en visual me aparece una terminal seguido de un pico, ahi abajo escribo python, le doy enter y ya puedo probar cosas en la consola (#eso es el desafio 2)
+pongo calculos o prints etc y enter y me devuelve en la misma consola luego de >>> el rstdo
+
+ejs 6, 7, 8
+operadores matematicos: + - /(division) //(division entera) %(resto) * **(potencia)
+variable= valor de variable
+operadores relacionales: == != < > >= <=
+numeros son int
+en cadena las letras son  str.
+
+posiciones en str x ej -> el 1er caracter esta en posicion 0, el 2do en 1, etc
+
+para buscar q letra esta en la posicion 0:
+
+saludo = "Hola mundo"
+
+saludo[0]
+
+para que me diga desde la posicion 0 incluida hasta la posicion 3 sin incluirla (1ros 3 caracteres):
+
+saludo = "Hola mundo"
+
+saludo[0:3]
+
+para que me diga desde la posicion 0 incluida hasta el final incluido:
+
+saludo[0:]
+
+saludo[1:]  posicion 1 hasta el final
+
+saludo[-1:] ultima posicion hasta el final (seria solo la ultima)
+
+ej 11 desafio 3, 4 y 5:
+
+saludo = "Hola mundo"
+
+len(saludo) #cant de caracteres de la variable
+
+saludo.upper() #pone en mayuscula la variable
+
+saludo.lower() #pone en minuscula la variable
+
+saludo.count('o') #dice cuantas veces aparece el caracter "o"
+
+saludo.replace('o','a') "cambia las "o" q aparezcan por "a"
+
+saludo = "Hola mundo"
+
+saludo.upper().lower() #si hago hasta aca, me lo da en minuscula porq se queda con la ultima orden q le doy
+
+saludo.replace("mundo", "terricolas") #cambia la palabra mundo por terricolas y el resto lo deja como estaba 
+
+print(saludo) #si hago hasta aca me da la variable saludo normal xq es inmutable
+
+ej 12
+"m" in "ma" #da true xq es verdad que "m" esta contenido en "ma"
+
+saludo = "Hola mundo"
+
+saludo.upper().lower() #si hago hasta aca, me lo da en minuscula porq se queda con la ultima orden q le doy
+
+saludo.replace("mundo", "terricolas") #cambia la palabra mundo por terricolas y el resto lo deja como estaba 
+
+print(saludo) #si hago hasta aca me da la variable saludo normal xq es inmutable
+
+los nros (int, float), str, bool y tupla son imutables x ej x=5 y luego x =10, es inmutable xq no cambia el contenido simplemente reasigne otro valor. 
+
+mutables son las listas ( li=[1,2] -> li[0]==5 -> entonces ahora contenido de li es  [5,2] ) y los diccionarios( di={"n":"a"} -> di["n"]=="p" -> entonces ahora di es {"n": "p"} )
+
+lista [1,2]   #dentro puede tener cualquier cosa, incluso listas #se accede a ella a partir de su posicion
+
+
+lista[0] #accedo a posicion 0
+
+1
+
+len(lista) #para conocer longitud
+
+2 #xq cuenta a partir de 1 al calcular longitud (no es como la posicion q cuenta a partir de 0)
+
+lista=[2,5,4]
+
+lista.append(25) #agrega 25 a la lista
+
+lista.remove(25) #saca 25 de la lista
+
+lista
+
+lista=[2,5]
+
+lista.index(5) #retorna 1 xq es la posicion en q se encuentra el 5 en la lista
+
+diccionario={} #diccionario vacio 
+diccionario=dict()
+
+diccionario = {"llave": "valor", "llave2": "valor2"} #se accede a este a partir de su llave (no su posicion) #llave debe ser inmutable y valor cualquier dato incluso otro dicc
+
+diccionario["llave"] #asi accede al valor de la llave
+
+diccionario.keys() #de esa forma accede a todas las llaves
+
+diccionario.values() #de esa forma se accede a todos los valores
+"""
+
+def doble(numero): #f(arg)
+    resultado = numero * 2  #operacion sobre arg
+    return resultado #rstdo q quiero devolver
+
+doble(3)
+
+#ej 16 desafio 6
+cebada=30
+def mate(personas):
+  termo=cebada*personas
+  return termo/1000
+
+mate(80)
+
+#desafio 7
+fact=70
+def vaq(comensales):
+  costo_por_persona=fact
+  return costo_por_persona/comensales
+
+vaq(3)
+
+"""ej 18
+condicionales#de olvidar sangria python te lo hace notar diciendote`IndentationError:expected an indented block`
+if condición:
+    aquí van las órdenes que se ejecutan si la condición es cierta
+else:
+    aquí van las órdenes que se ejecutan si la condición es falsa
+"""
+
+#desafio 8 
+  ceb=30
+  def calc(per):
+    ml=per*ceb
+    if ml<=1000:
+      return ml
+    else:
+      return "vas a necesitar mas de un termo"
+
+calc(80)
+
+#diccio
+#p acceder al valor d determinada clave
+pedido = { "Ana" : "no veggie", "Paul": "veganas", "Luz": "vegetarianas"}
+pedido["Ana"]
+
+#p acceder a todas las claves
+pedido = { "Ana" : "no veggie", "Paul": "veganas", "Luz": "vegetarianas"}
+pedido.keys()
+
+#p acceder a todos los valores
+pedido = { "Ana" : "no veggie", "Paul": "veganas", "Luz": "vegetarianas"}
+pedido.values()
+
+#para nombrar cada uno
+  pedido = { "Ana" : "no veggie", "Paul": "veganas", "Luz": "vegetarianas"}
+  lista_comensales=pedido.keys() #accedo a los valores d c clave
+  def empanadas_por_gusto():
+    for i in lista_comensales: ##i(variable cambiante) y lista con valores q ira tomando i
+      print(pedido[i]) #imprime c valor del diccio q se corresponda a c llave
+  empanadas_por_gusto()
+
+#para mostrar combianciones en diccionarios uso ".items()"
+contadores={} #diccio donde vamos a guardar apariciones
+cadena=input("ingre: ") #pedimos cadena
+for caracter in cadena: #voy tomando letra x letra
+  if caracter in contadores: #si caracter ya esta en diccio, agrego una
+    contadores[caracter]+=1
+  else:
+    contadores[caracter]=1 #si caracter no estaba en diccio, creo la clave y le asigno uno
+for clave, valor in contadores.items(): #muestra combinaciones clave valor d cada elemento del diccio
+  print(clave, valor)      #me tiene q dar clave q es letra y valor q es cantidad de c combinacion
+
+#desafio 9 ->  esta bien xq ana lo hizo para q como max sea 1 d cant
+#devuelva cant d empanadas d c gusto q debe pedisrse a casa d comidas
+pedido = { "Ana" :"vegan", "Paul": "veganas", "Luz": "vegetarianas"}
+def f():   #no hace falta poner argumento xq va a trabajar directo modificando el diccio origi
+  dict2={} #diccionario vacio
+  for clave in pedido.values():  #para cada clave 
+    dict2[clave]=0
+    dict2[clave]+=1 
+  print(dict2)    
+
+
+
+f()
+
+#ej 20
+#Un script es una secuencia de comandos, o en criollo un programa muy simple. Eso que fuimos ejecutando linea a linea, perfectamente podría escribirse en un archivo para ejecutarse una sola vez, más comodamente.
+
+#Por convención, los archivos de los scripts de python tienen extensión ‘.py’. Para ejecutar un script de python en la consola simplemente debemos escribir:
+
+#para correr un script
+#abrir el cmd de windows en la carpeta donde tengas el script y correr el comando:
+ "python script.py"
+
+format
+
+notaFinal = 4*totalCorrectas - totalIncorrectas
+print(f"La calificacion final es: {notaFinal}")
+
+
+print(f"Las ganancias de comision son ${totalComision}, y el total es ${totalComision+sueldoBase}")
+
+
+print("ingrese {0:.2f}%".format(variable)) #otra forma d poner formar, el .2f hace q tome solo 2 decimales
+
+#w{5}
+{0-9}{4} #de 0 a 9 4 veces
+
+print("BMI:", end="") 
+print("bla")
+
+print("Study", "tonight", sep = '')
+print("Study", "tonight", sep = ' & ')
+
+#p usar while
+n= int(input("Ing: ")) #cant d notas q voy a ingresar
+
+suma=0 #p suma d notas
+i=1 #p controlar ciclo y poder tocar todas lsa notas necesarias
+while (i<=n): #mientras i sea menor o igual q la cantidad d notas
+  print("ingr", i) 
+  nota=float(input()) #el prom sera decimal quizas
+  suma=suma+nota #en la variable suma vamos acumulando las notas
+  i+=1 #suma hasta llegar a la cant d notas
+prom=suma/n
+print("el promedio : ", prom)
+
+#p copiar una lista en otra
+lista2 = list(lista1)
+#p q diga lista en orden inverso
+lista2.reverse()
+
+" hola ".strip() #elimina espacios extremos
+
+".hola.".strip(".")
+
+"android is awesome".strip("ae") #solamente vale para extremos
+
+"android is awesome".strip("is") #no hace nada xq no son extremos
+
+str.split("hola mundo", " ")
+
+str.split("holgasan", "a")
+
+str.join(" ", "hola mundo")
+
+str.join("_", ["hola", "mundo"])

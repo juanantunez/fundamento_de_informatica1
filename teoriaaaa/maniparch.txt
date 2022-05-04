@@ -1,0 +1,272 @@
+Manipulación de archivos
+Abrir archivos
+Existen dos formas:
+- archivo = open(path_archivo, modo)
+archivo.close() => Ya que si lo abro de esta manera hay que cerrarlo manualmente.
+Existe un método para preguntarle al programa si el archivo está cerrado o no.
+- archivo.closed()
+- with open(path_archivo, modo) as variable_para_llamar_archivo:
+accion a realizar
+De esta última manera, el archivo se cerrará automaticamente.
+path_archivo => es un objeto de tipo str que indica la ruta en la que se encuentra el
+archivo.
+modo => es un objeto de tipo str que indica la forma en la que Python accederá al
+archivo en cuestión.
+- r: abre un archivo solo para la lectura
+- r+: abre un archivo solo leer y escribir
+- a: abre un archivo para escribir (si ya existe texto dentro del escribo, simplemente
+se agregará debajo) y si este no existe creará uno con el contenido que le
+pasemos.
+- w: abre un archivo y sobreescribe el contenido que ya exista dentro del mismo,
+pero si no existe el archivo simplemente creará uno con ese contenido que le
+pasemos.
+Una vez que instanciemos esto, por debajo para podremos acceder a los métodos que
+queramos (dentro del que hayamos definido como modo).
+--------
+archivo = open(“/examen/examen.txt”, “r”)
+print(archivo.read())
+print(archivo.readlines())
+archivo.close()
+archivo = open(“/examen/examen.txt”, “a”)
+archivo.write(“texto”)
+archivo.close()
+- archivo.read()
+- archivo.readline()
+- archivo.readlines()
+- archivo.readable()
+- archivo.write()
+- archivo.writelines()
+- archivo.writeable()
+
+Rutas absolutas y relativas
+Absoluta: el path o ruta a un archivo, será entonces, el recorrido de directorios o
+carpetas que debemos recorrer para llegar a nuestro archivo. Esta se escribe separando
+los nombres de los respectivos directorios separados por “/”.
+"C:\home\Facultad\Fundamentos\Manipulación_de_archivos.md"
+Relativa: imaginemos que esta es la estructura de archivos de nuestra computadora,
+donde existen dos carpetas en el home: Fotos y Facultad. Dentro de la carpeta Facultad,
+podemos encontrar a su vez dos directorios: Fundamentos y Estadistica. Nuestra carpeta
+de trabajo actual es la de Fundamentos, donde tenemos nuestro archivo de interes
+Manipulación_de_archivos.md.
+Desde el directorio Facultad podemos escribir la ruta relativa a nuestro archivo del
+siguiente modo:
+./Fundamentos/Manipulación_de_archivos.md
+Ahora si quisieramos acceder a las Fotos, podemos hacer:
+cd ../Fotos
+
+Modulo os y sus métodos
+“os” es un modulo de Python proporciona funciones para interactuar con el sistema
+operativo.
+¿Cómo se usa?
+import os: para importar el modulo a nuestro programa
+os.getcwd(): para conocer el directorio de trabajo en el que estamos
+Si quiero pasar mi path para abrir un archivo puedo hacerlo de dos formas:
+- os.getcwd() + “\\archivo.txt”
+- os.path.join(os.getcwd(), “archivo.txt”)
+os.chdir(path_nuevo): para cambiarnos a otro directorio que le pasemos por parametro
+os.mkdir(nombre_carpeta): para crear una nueva carpeta
+os.listdir(): para listar los directorios que existen dentro del nuestro
+os.path.exists(path_buscado): pregunta si existe o no ese path
+os.remove(path_buscado): elimina el path buscado 
+
+OTRO RESUMEN:
+Manipulación de archivos:
+Para Python existen dos tipos de archivos: Binarios y de texto. 
+Los archivos de texto son una secuencia de línea, donde cada línea incluye una secuencia de caracteres. Cada línea suele terminar con un carácter de fin de línea (Usualmente \n)
+Los archivos Binarios es cualquier tipo de archivo que no es de texto, solo se pueden interpretar mediante Apps.
+Apertura de archivos:
+Para abrir un archivo de texto, ya sea para leerlo o escribir se usa la función open ().
+Sintaxis: open (“path_del_archivo”, “modo”)
+Path del archivo = es un objeto en string que indica la ruta donde se encuentra el archivo. Siempre entre comillas
+Modo = es un objeto string que indica como se accederá a ese archivo.
+MODOS DE APERTURA:
+“r”  abre archivo solo para lectura.
+“r+”  abre archivo para lectura y escritura.
+“a”  abre archivo para agregar información. Si el archivo no existe, crea un nuevo para escribir.
+“w”  abre un archivo solo para escribir. Sobrescribe el archivo en caso de que exista, o crea uno nuevo en caso de que no.
+Cierre de archivos:
+Cerrar los archivos es importante. Porque si no se puede ralentizar la maquina por el uso excesivo de RAM. También porque muchos cambios en los archivos no se efectúan hasta que se cierra.
+Se puede cerrar un archivo con el método close ().
+archivo = open (path_al_archivo, modo) 
+archivo.close()
+Pero hay otra forma de abrir archivos y que siempre lo cerrara:
+With open (Path_del_archivo, modo) as miarch:
+Esto se cerrara en el momento que se sale del bloque with.
+
+
+Rutas absolutas y relativas:
+La ruta absoluta es un Path es todo el recorrido en donde se encuentra el archivo. En Windows las carpetas/archivos están separas por “\”.
+Ejemplo: "C:\home\Facultad\Fundamentos\Manipulación_de_archivos.md"
+
+La ruta relativa, por su parte, es un acote del Path absoluto, cuando ya se encuentra en una carpeta.
+Ejemplo: /Fundamentos/Manipulación_de_archivos.md
+
+Para cambiar hacia adelante se pone un punto, barra y el nombre de la carpeta
+
+Ejemplo: ./Fundamentos/Manipulación_de_archivos.md 
+
+Para ir hacia atrás se pone doble punto
+
+Ejemplo: cd ../Fotos
+
+El cd responde a Change directory y es el comando que sirve para navegar en el Path.
+
+Automatización en la construcción de rutas:
+
+Cada programa que se ejecuta en la pc tiene un directorio de trabajo actual, o cwd. Cualquier nombre de archivo que no comience con la carpeta raíz se encentra en el directorio de trabajo actual. Se puede obtener el directorio de trabajo actual como un string, usando la biblioteca OS.
+
+Esta biblioteca tiene funciones como “os.getcwd” o “os.chdir”. Permite ver el directorio actual o cambiarlo respectivamente. 
+
+>>> import os
+>>> os.getcwd()
+'/home/Ana'
+>>> os.chdir('/home/Ana/Documents')
+>>> os.getcwd()
+'/home/Ana/Documents'
+
+La función os.mkdir crea un directorio en blanco en el sistema de archivos
+La función os.listdir lista los archivos y directorios en el sistema de archivos.
+
+Lectura y escritura de archivos:
+La escritura se hace con el método .write().
+with open(path_al_archivo, modo) as miarch:
+    miarch.write("Este es el contenido del archivo")
+
+La funcion read() lee el archivo entero.
+La funcion readline() Lee la primera línea.
+La funcion readlines() da una lista con todas las líneas del archivo.
+
+AHORA LO MIO:
+#manipulacion d archivos
+
+arch d texto (fin de linea se marca con "\n" q hace q pase al renglon d abajo)
+los otros son arch binarios
+"""
+
+open(path_al_archivo, modo) #path-> es un str q indica la ruta del arch #modo-> indica forma en q accede al arch
+
+"""modos: p abrir arch
+
+r =p leer (read)
+
+r+ =p leer y escribir
+
+a =agrega info, si no existe, crea archivo nuevo p escribir(append)
+
+w =p escribir, si ya existe sobreescribe y si no existe crea unevo ´p escribir(write)
+
+"""
+
+#p cerrar el arch(siempre cerrarlo), se cierra al salir del bloque "with"
+with open(path_al_archivo, modo) as miarch:
+    #Aquí van las líneas de procesamiento del archivo
+
+#otra forma d cerrar el arch (siempre cerrarlo)
+archivo=open(path_al_archivo, modo)
+archivo.close()
+
+#el path o ruta: recorrido d directorios o carpetasa q debemos recorrer p llegar a nuestro archivo (separa directorios con "\")
+path windows->  "C:\home\Facultad\Fundamentos\Manipulación_de_archivos.md"
+
+#explicacion:
+/
+└── home/  ← carpeta de referencia
+    │
+    ├── Facultad/ ← Directorio de trabajo
+    |   └── Estadística 
+    │   └── Fundamentos/  
+    │       └── Manipulación_de_archivos.md
+    └── Fotos  ← Otro directorio
+
+#desde directorio facultad p escribir ruta relativa a nuestro archivo
+./Fundamentos/Manipulación_de_archivos.md #el "."->referencia directorio actual
+/Fundamentos/Manipulación_de_archivos.md    
+
+#para acceder a fotos
+cd ../Fotos # el ".." ->va para atras (sube en la jerarquia d la explicacion)sale d facultad y va a direc fotos
+
+desafio 1
+
+#"cwd." ->muestra directorio d trabajo actual (si nombre d arch q no comienza con carpeta raiz, se asume q esta en directorio actual)
+
+>>> import os #p obtener directorio actual como str
+>>> os.getcwd() #p conocer directorio actual
+'/home/Ana'
+>>> os.chdir('/home/Ana/Documents') #p cambiar d directorio (si cambia a directorio q no existe marcara error)
+>>> os.getcwd()
+'/home/Ana/Documents'
+
+desafio 2
+
+with open(path_al_archivo, modo) as miarch:
+    miarch.write("Este es el contenido del archivo") #p escribir en arch ->en este caso almacena lo del () en miarch
+
+desafio 3
+
+#2 formas de leer arch
+#p leer 
+bio = open("bio.txt", "r")
+bio.read()
+
+#otra forma
+bio = open("bio.txt", "r")
+bio.readlines()
+
+.read() Lee del archivo según el número de bytes de tamaño. Si no se pasa ningún, entonces lee todo el archivo.
+
+.readline() Lee como máximo el número de caracteres de tamaño de la línea. Esto continúa hasta el final de la línea y luego regresa.
+
+.readlines() Esto lee las líneas restantes del objeto de archivo y las devuelve como una lista.
+
+#apuntes clase prof
+#no se puede volver a lineas superiores, nos quedamos al final del archivo
+#llemos linea y pasamos a siguiente, no se puede volver
+with open("../manipulacion_archivos.txt", "r") as f: #abro un arch d texto en forma d lectura
+  f.read() #lo leo
+#me devuelve todo el archivo
+
+f.read() #si lo quiero volver a leer
+#me va a dar error->sale vacio
+
+a=open("../manipulacion_archivos.txt", "r")
+a.read()
+#lee el texto entero
+
+a.read()
+#retorna vacio xq ya lo leyo
+
+a=open("../manipulacion_archivos.txt", "r")
+a.readline()
+#lee 1ra linea
+
+a.readline()
+#le la siguiente linea hasta q llego a la utima y retorna vacia
+
+a=open("../manipulacion_archivos.txt", "r")
+a.readlines() #ordena documento en una lista, cada vez q salta de linea cambia de elemento
+
+"""lista=f.read().split()   #guarda palabras del archivo en una lista separadas cada vez q aparece un espacio
+
+#rutas (prof)
+"""
+
+#pongo ".." para ir al directorio o carpeta anterior
+#es importante xq muchas veces no vamos a conocer las rutas absolutas de los archivos
+ruta absoluto:dice donde esta el archivo desde el inicio d la ruta (caso d windows arranca con "C:\\")
+ruta absoluta si se lo paso a alguien no le va a andar xq no tiene un home juan
+para trabajar uso rutass relativas, p esto tengo q saber exactamente donde estoy parado p saber como moverme
+aux: en tp final del curso carpeta base fundamentos, organizo p poner mismo nombre
+
+>>> ruta_relativa = os.path.join("Documentos", "UCEMA", "Fundamentos", "Práctica4", "archivo.txt")
+
+#me va a devolver lo correspondiente ya sea windows o mc, en caso de mc me devuelve:
+'C:\\Documentos\\UCEMA\\Fundamentos\\Práctica4\\archivo.txt'
+
+>>> import os
+>>> import glob
+>>> os.listdir() #devuelve enn una lista todo lo q hay en esa carpeta
+['Ej1.py', 'Ej3.py', 'archivo2.txt', 'Ej2.py', 'Ej4.py', 'documento.txt', 'Ej5.py'...]
+>>> glob.glob("*") #hasta aca devulve lo mismo q listdir, xq puse "*" en () q es cualquier cosa, pero dependeiendo lo q ponga dentro del parentesis puede variar
+['Ej1.py', 'Ej3.py', 'archivo2.txt', 'Ej2.py', 'Ej4.py', 'documento.txt', 'Ej5.py'...]
+>>> glob.glob("*.py") #pero aca devulve cualquier cosa"*"" solo los q terminan en "py"
+['Ej1.py', 'Ej3.py', 'Ej2.py', 'Ej4.py', 'Ej5.py'...]

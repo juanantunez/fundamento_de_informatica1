@@ -1,0 +1,322 @@
+Expresiones regulares
+Secuencias de escape
+- /n => salto de línea
+- /t => tab
+- ‘ => comillas simples
+- “ => comillas dobles
+- ‘’’ => comillas triples
+
+Metacaracteres
+- \d => digitos del 0 al 9
+- \D => NO digitos del 0 al 9
+- \w => caracter (a-z, A-Z, 0-9, _)
+- \W => NO caracter (a-z, A-Z, 0-9, _)
+- \s => espacio en blanco
+- \S => NO espacio en blanco
+- . => cualquier carácter excepto nueva línea
+- \ => cancela caracteres especiales
+- \. => para indicar el punto
+- ^caracteres => inicio de cadena de caracteres
+- caracteres$ => fin de cadena de caracteres
+- \A => inicio de texto
+- \Z => fin de texto
+- caracteres* => 0 o más (codiciosa)
+Ejemplo: Python!* => encuentra un match cuando dentro de mi cadena haya los
+caracteres “Python” seguido de 0 o más “!”. Si encuentra Python, hay match= Python, si
+encuentra Python!, hay match= Python!, y así… No hay match si no encuentra “Python”.
+- caracteres+ => 1 o más (codiciosa)
+- caracteres? => 0 o 1 (perezosa)
+- carácter{número} => número exacto de veces que se repite un carácter
+- carácter{número,} => número de veces que se repite a partir de ese numero que le
+pasemos en adelante
+- caracter{num1, num2) => rango de numeros de veces que se repite un caracter
+- (caracteres) => grupos
+- [caracteres] => encuentra los caracteres entre corchetes
+Si pongo [98]\d{2} me tomara los primeros dos digitos numericos que arranquen
+con 9 o con 8. [n1, nu2] funciona como si tuviera un “|”.
+Si pongo [a-z] me tomara todos los valores de la a a la z en minuscula.
+- [^caracteres] => encuentra caracteres que NO estan dentro de los corchetes
+- -.+- => toma todo lo que hay dentro de los guiones
+- | => condicion, o uno o otro
+- \b => limites de palabra
+- \B => NO limites de palabra
+- ()\1 => para encontrar un grupo (123-) mas de una vez
+EJ: En vez de escribir (123-)(123-), escribo (123-)\1 .
+
+Métodos y ejemplos
+import re => para importar el modulo de expresiones regulares
+re.findall(r’patron_a_encontrar’, cadena_de_texto) => buscar todos los emparejamientos.
+Devuelve un array con todos los matches.
+re.search(r’patron_a_encontrar’, cadena_de_texto) => buscar el primer emparejamiento.
+Devuelve objeto especificando el match.
+re.search(r’patron_a_encontrar’, cadena_de_texto).group() =>
+re.match() => busca el patrón y devuelve la primera aparición y solo al principio de la
+cadena. Si se encuentra una coincidencia en la primera línea, devuelve el objeto de
+coincidencia. Pero, si se encuentra una coincidencia en alguna otra línea, devulve un
+valor nulo.
+re.sub(r’patron_a_encontrar’, nueva_cadena, cadena_de_texto) => permite reemplazar
+todos las ocurrencias del patrón por otro patrón en un string.
+
+Flags
+Python toma una cadena de caracteres como una sola linea de codigo,
+independientemente de si lo hemos escrito separado (salvo que hayamos indicado
+mediante “/n”. Por lo tanto, si deseas que Python interprete tu cadena separado entre
+lineas debes incluis un “flag” dentro de tu metodo.
+Ejemplo:
+texto = ‘’’Hola mundo.
+Me gusta Python!!!
+Mi primer numero de la suerte es 987-654-321
+Mi segundo numero de la suerte es 876-543-210
+’’’
+re.search(r’Mundo.$’, texto, flags=re.M)
+flags=re.M => hace que el texto sea multilínea
+flags=re.I => ignora si el caracter esta en minuscula o mayúscula
+
+OTRO RESUMEN:
+Expresiones regulares:
+Los caracteres que no se ven gráficamente en el texto, pero le dan un formato a este se denominan caracteres especiales, estos se encuentran representados por secuencias de escape.
+Por mas que la secuencia de escape tengo más de un carácter especial se considera un carácter único.
+Estas combinaciones tienen una barra invertida \ seguida de una letra, gralmente. 
+Secuencias de escape	Representación
+\n	Salto de línea
+\t	Tab o cambio de pestaña
+\s	espacio
+´	Comillas simples
+“	Comillas dobles
+
+Que son las expresiones regulares
+Las expresiones regulares son cadenas de caracteres basadas en reglas sintácticas, que permiten describir secuencias de caracteres. Es un criterio para buscar, capturar o remplazar texto utilizando patrones.
+
+
+
+
+
+
+
+
+
+Metacaracteres:
+Son caracteres especiales que dependen como su usen tiene un significado especial para las expresiones regulares.
+Existen los metacaracteres delimitadores que nos permiten delimitar donde queremos buscar los patrones de búsqueda.
+Metacaracter	Significado
+^	Inicio de línea
+$	Fin de linea
+\A	Inicio de texto
+\Z	Fin de texto
+.	Coinice con cualquier carácter en una línea dad
+
+Maetacaracter cuantificadores:
+Metacaracter	Significado
+*	Cero o más.
++	Una o más ocurrencias del patrón.
+?	Cero o una.
+{n}	Exactamente n veces.
+{n,m}	Por lo menos n pero no más de m veces.
+
+Si se quiere buscar al menos n veces pero no se tiene delimitador en el tope se hace {n, }
+(ab*) busca a, ab y a seguidas de una o más b.
+(ab+) coincidirá con “a” seguido de cualquier número menos el 0 de “b”; no coincidirá solo con “a”.
+ 
+
+Rangos
+Un rango es una clase de caracteres abreviadas que se cre escribiendo el primer carácter y el ultimo separado por un guion.
+Ejemplo: [a-z] [A-Z] [0-9]
+También se puede decir que no busque los caracteres que estén en un rango con ^.
+Ejemplo: [^a-d] busca cualquier carácter menos a, b, c, d.
+
+Expresiones regulares en Python.
+Para trabajar con Expresiones regulares se debe usar la ibreria RE.
+Se la invoca con “import re”
+Función search().
+Se puede encontrar patrones con la funcion search.
+Sintaxis re.search( patron, string)
+Comprueba si hay coincidencias que no se limiten al principio.
+Función match():
+Comprueba si el principio de la cadena coincide, extrae
+Sintaxis re.match(patron, string)
+.group(parámetro) puede hacer tanto para la funcion search como match que tire las coincidencias de los distintos paréntesis de las condiciciones, según el parámetro que se ponga.
+.groups() devuelve todas las coincidencias sin importar de que paréntesis vienen.
+Función findall():
+Obtenga una lista de todas las piezas coincidentes
+Sintaxis: re.findall(patron, texto)
+Para saber que hay entre dos palabras del texto se usa en el patron “primerpalabraquedelimita(.*)segundopalabraquedelimita”
+Remplazos o sustituciones masivas.
+La función sub permite reemplazar todas las ocurrencias del patrón por otro patrón en un String.
+Sintaxis re.sub(lo que queres cambiar, el remplazo, texto)
+re.sub(r"""[ _:]""", "|", string
+
+
+Como escribir las expresiones regulares en los patrones:
+r”([\w]+)@([\w]+)”
+La r va siempre
+Entre paréntesis indican inicio y fin del patrón, tienen expresiones regulares dentro.
+Entre corchetes lo que se busca, caracteres normales
+Entre comillas pero sin paréntesis ni corchetes lo que se busca literalmente.
+
+Función Split:
+Separa un string por patrones y genera una lista, por defecto es por espacios.
+re.split("@|&", substring))
+Patron se pueden poner todos los caracteres que quieras pero se separan por barra vertical.
+
+MIOOO:
+#p probar-> entrar a pag d internet: #regex101
+
+\n	salto de línea
+\t	Tab o cambio de pestaña
+\s	espacio
+'	Comillas simples
+"	Comillas dobles
+
+\ t: Representa un espacio en blanco de 4 caracteres, similar a la función de sangría en el documento, que es equivalente a presionar una tecla Tab.
+
+\ n: significa salto de línea, equivalente a presionar una tecla enter
+
+aux: , end="" para entre prints d distintos renglones ponerlos en el mismo
+
+print("hola\tcrack")
+
+print("hola\ncrack")
+
+print("hola\s+crack") #no funcionaaaa
+
+#comilla simple y doble no tienen diferencia
+#expresion regular->representacion d conjunto d caracteres
+\d #busca los nros->todos
+
+#metacarteres -> caracteres especiales, significado cambia con contexto p expresiones regulares
+
+#metacaracteres delimitadores->p delimitar donde buscar patrones d busqueda
+^	Inicio de línea
+$	Fin de linea
+\A	Inicio de texto
+\Z	Fin de texto
+.	Coincide con cualquier caracter en una línea dada
+
+texto = 'Esta es la linea uno\npalabra en la linea dos\n'
+'^palabra'-> p buscar palabra en texto xq esta al ppio d la linea
+
+#metacaracteres cuantificadores->p repetir cierta cantidad d veces una busqueda dada
+*	Cero o más: todas las ocurrencias de un dado substring
++	Una o más ocurrencias del patrón
+?	Cero o una
+{n}	Exactamente n veces
+{n,m}	Por lo menos n pero no más de m veces.
+
+#desafio 1,2 y 3
+obtenga al menos 4 dígitos->  \d{4,}
+
+obtenga al entre 3 y 6 letras minúsculas-> [a-z]{3,6}
+
+ obtenga todas las apariciones del patrón ab en un string-> ab*
+
+#metacaracteres predefinidos ->facilitan uso d expresiones regulares
+\w	Caracter alfanumércio
+\W	Caracter NO alfanumércio
+\d	Caracter numércio
+\D	Caracter NO numércio
+\s	Un espacio, de cualquier tipo (\t\n\r\f)
+\S	Cualquier caracter que no sea un espacio
+
+#¿Qué expresión regular usarías para extraer el número de estudiantes que hay en una clase según el siguiente texto
+texto = 'En la clase de Introducción a la programación hay 30 estudiantes' 
+/d+ #donde encuentra uno o mas nros los extrae
+
+#Rango-> conformado por primer caracter del rango, un guión y el último caracter del rango. encontrará uno cualquiera de los caracteres de la lista
+- El rango [a-d] equivale al [abcd]
+- El rango [1-10] equivale al substring [12345678910]
+- El rango [Dd] equivale a buscar una D mayúscula y una d minúscula
+
+también podemos listar caracteres que no deben aparecer utilizando el ^. Así, por ejemplo rango [^a-d] coincide con cualquier caracter que no sea abcd
+
+#p trabajar con expresiones reg hay q instalar biblioteca re
+#p instalar:
+pip install re
+#si ya esta instalada basta con :
+import re
+
+#caracteres coincidentes->p encontrar patrones en un texto uso funcion: search()->devuelve posiciones en q esta el 1er amet, esta desde posicion 22 hasta 26 sin incluir
+import re
+texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet et amet."
+patron = "amet"
+re.search(patron, texto)
+
+desafio 5 
+#tengo q imrpimir fragmento entre posicion 22 y 26 (que quiere decir span?)
+texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet et amet."
+print(texto[22:26])
+
+#si pongo la 1ra palbra y coincide ahi devuelve, si no es la 1ra devuelve nulo
+#busca el patron y te devuelve la 1ra aparicion y solo al ppio d la cadena, si coincidencia en 1ra linea devuelve objeto d coincidencia pero si en otra linea devuelve valor nulo
+import re 
+texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet et amet."
+patron = "amet"
+re.match(patron, texto)
+
+#el group()->me devuelve el patron q aparece en el texto
+import re
+texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet et amet."
+patron = "amet"
+re.search(patron, texto).group()
+
+#el finadall->p obtener todas las ocurrencias del substring
+import re
+texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet et amet."
+patron = "amet"
+re.findall(patron, texto)
+
+import re    #group y group(0) devuelven lo mismo
+texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet et amet."
+patron = "amet"
+re.search(patron, texto).group()
+'amet'
+re.search(patron, texto).group(0)
+'amet'
+
+import re    # group(1) devuelve
+texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet et amet."
+patron = "amet"
+re.search(patron, texto).group(0)
+
+#p obtener lo q esta dentro d cierto patron (ej: lo q esta entre ciertas palabras)
+import re
+texto = "Lorem ipsum dolor sit amet, consectetur ipsum elit. Amet sit amet."
+patron = "ipsum(.*)sit" #"."->puede ser cualquier caracter "*"(una o mas)->puede haber 0 o mas d estos caracteres ->prioriza delimitadores externos
+                        # y pone de cada lado los str delimitadores,toma el 1ro del 1ro y el ultimo del 2do en caso q aparezcan mas de una vez                                                                                                        
+re.search(patron, texto).group()
+'ipsum dolor sit amet, consectetur ipsum elit. Amet sit'                 #group y group(0)  devuelven los mismo->los delimitadores externos con lo q esta entre ellos
+re.search(patron, texto).group(0)
+'ipsum dolor sit amet, consectetur ipsum elit. Amet sit'
+re.search(patron, texto).group(1)                                #group(1) devuelve solo lo q esta entre los delitmitadores(no devuelve los delimitadores)
+' dolor sit amet, consectetur ipsum elit. Amet '
+
+#p obtener lo q esta dentro d cierto patron (ej: lo q esta entre ciertas palabras)
+import re
+texto = "Lorem ipsum dolor sit amet, consectetur ipsum elit. Amet sit amet."
+patron = "ipsum(.*?)sit"#"."->puede ser cualquier caracter "*"(una o mas)->puede haber 0 o mas d estos caracteres ->prioriza delimitadores externos
+                        #al poner "?"(0 o una)->prioriza los delimitadores internos
+                        #y pone de cada lado los str delimitadores,toma el 1ro del 1ro y el 1ro del 2do en caso d ser mas de uno
+"?"(cero o una)->p priorizar los delimitadores internos
+re.search(patron, texto).group()
+'ipsum dolor sit'                             #group y group(0)  devuelven los mismo->los delimitadores internos con lo q esta entre ellos
+re.search(patron, texto).group(0)
+'ipsum dolor sit'                             
+re.search(patron, texto).group(1)              #group(1) devuelve solo lo q esta entre los delitmitadores(no devuelve los delimitadores)
+' dolor  '
+
+#p obtener todas las apariciones d lo q se encuentra entre los delimitadores->(es como un group(1) q devuelve lo q haya en el medio d los delimitadores,¿ en las disintas ocasiones)
+import re
+texto = "Lorem ipsum dolor sit amet, consectetur ipsum elit. Amet sit amet."
+patron = "ipsum(.*?)sit"
+re.findall(patron, texto) 
+[' dolor ', ' elit. Amet ']
+
+#sub ->reemplaza las ocurrencias d un patron x un str determinado q ingreso
+texto = "Lorem ipsum dolor sit amet, consectetur ipsum elit. Amet sit amet."
+patron = "ipsum"
+re.sub(patron, "###", texto)
+
+#aux sub->se puede agregar un parametro al final de la funcion sub vcon el numero de veces que queres limitar el remplazo
+import re
+texto = "Lorem ipsum dolor sit amet, consectetur ipsum elit. Amet sit amet."
+patron = "ipsum"
+re.sub(patron, "###", texto, 1)

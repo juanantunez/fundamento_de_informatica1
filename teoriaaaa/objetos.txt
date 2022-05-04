@@ -1,0 +1,567 @@
+POO
+poo → muchos objetos que se comunican entre sí.
+● Un mensaje es un método de un objeto. Los mensajes se usan haciendo .mensaje()
+● Los objetos tienen estado, cambia estado → comportamiento de los objetos
+● Clases nos da una idea de que puede hacer el objeto de esa clase. ej) pepito es un
+objeto y golondrina la clase
+● Interfaz de un objeto, es el conjunto de mensajes que entiende. self = objeto dado Los
+métodos tienen siempre como primer argumento el “self”. __init__ = para construir, es el
+constructor.
+Clases de objetos Para crear una clase se inicia con la palabra class y por consiguiente
+se escribe el nombre de la clase en mayúscula. Los métodos son los mensajes que
+puede hacer un objeto. La diferencia entre un método y una función, es que la última
+está por fuera de la clase. En el método, siempre tienen como primer argumento el self,
+quien representa un objeto dado
+El __init__ es el constructor de pepita por ejemplo. Veámos un ejemplo:
+class Golondrina:
+def __init__(self, energia):
+self.energia = energia
+def comer_alpiste(self, gramos):
+self.energia += 4 * gramos
+def volar_en_circulos(self):
+self.volar(0) def volar(self, kms):
+self.energia -= 10 + kms
+pepita = Golondrina(100) # el 100 es el estado inicial
+__init__ viene de la palabra en inglés initialize que en castellano es inicializar. Es lo que
+se conoce como el constructor de una clase y nos permite darle valores iniciales a los
+atributos de sus instancias a la hora de crearlas.
+Por su parte, self(que en castellano sería algo así como yo) es un primer parámetro
+obligatorio que nos permite acceder a los atributos del objeto que estamos
+instanciando. Si bien ese parámetro no debe llamarse self obligatoriamente, es la
+convención que se utiliza para nombrarlo y la respetaremos a lo largo de todo el
+recorrido
+
+
+#preguntas teóricas:
+#Como se define al polimorfismo->cuando hay dos o + objetos que pueden recibir mensajes de un 3er objeto, en este caso podemos crear una 3era clase que tenga método “comer” y lo pueda aplicar a estas 2, ej”clase humano”,  de ahí lo que hagan esas 2 clases no importa, lo que importa es que les pueda mandar el mensaje
+#Que es una clase madre->#clase madre tiene los métodos q compartes y las hijas los que son distintos
+#Se instancian o no las clases madres -> Clases madre no se instancian
+
+Son instancias !=, cuentan cada una con su propio estado, pueden tener valore de energías !=
+#esto es un “ambiente”, el contexto en el que viven
+
+POO objetos->entidad computacional que entiende mensajes Aux: por ej ->comer_peces ->son metodos
+
+-> None          # hizo lo que le pedimos pero no nos comunico nada
+
+Definiciones :
+Interfaz:mensajes que entienden y a los que responde el objeto, en otras palabras, métodos del objeto
+Class ->para definir un objeto
+Estado ->son todos los atributos que tiene iun objeto, ej:energía. La cual puede ser modificada mediante mensajes
+Aux: conjunto de mensajes que cada objeto expone lo llamaremos interfaz, la cual puede ser (y típicamente será) diferente para cada objeto
+#hacer desafio 1
+
+P y R no tienen la misma interfaz, pero comparten parcialmente una interfaz
+Interfaces compartidas:
+Comer alpiste:P A
+Comer peces: R
+Escupir fuego: R
+Volar:P A R
+Volar en circulos:P A R
+
+
+Distinción entre métodos y funciones:
+1)Las funciones se invocan como funcion(argumentos), pero los métodos se evaluan a través el envio de mensajes como objeto.mensaje(argumentos)
+2)los métodos tienen siempre declaran como primer parámetro self, las funciones no
+3)los métodos siempre van dentro de un class, mientras que las funciones van por fuera
+Objeto:ente computacional que entiende mensajes y tiene atributos
+             Tiene un estado: estático conjunto de atributos(arquitectura)
+			 dinámico de los objetos que contemplan los valores
+             tiene una instancia de una clase, es la creación concreta de una cosa observada
+            clase es la abstracción o la descripción general de los objetos
+            identidad, son únicos
+           interfaz:son los mensajes que pueden entender
+                          polimorfismo: tiene que existir un tercer objeto(observador)
+
+
+INFO AUXILIAR:
+Aux:Getter y setter para modificar aves, getter  me da valor del atributo(avenenestudio), setter modifica el atributo (init) 
+Def setter(self, valor):
+Self.atributo=valor
+Aux:list compresión ->para con un for q me devuelva una lista
+
+#comentarios importantes:
+Clases madre no se instancian
+Si quiero definir atributo para moto xej tendría que definir un seter xq el init se usa una sola vez
+Def setter_atributo2(self, valor):
+Self.atributo2=valor
+#estados->conjunto de atributos:alimento y caricias (no importa lo q cambia o lo que valga, no es el estado inicial)
+#en gato los mismos
+#interfaz->conjunto de métodos:que mensajes entiende la clase, sin importar lo que después hagan: energía, comer, alimento, acariciar,estadebil, pasear
+i->en gatos: energía, comer, alimento, acariciar,estadebil
+#comparten i?->si, comparten parcialmente xq por ej “pasear” perro lo tiene y gato no
+#poli->(no hay poli).     cuando hay dos o + objetos que pueden recibir mensajes de un 3er objeto, en este caso podemos crear una 3era clase que tenga método “comer” y lo pueda aplicar a estas 2, ej”clase humano”,  de ahí lo que hagan esas 2 clases no importa, lo que importa es que les pueda mandar el mensaje
+EN ESTE CASO no hay un 3ero que las use, por ende no hay polimorfismo, si hubiera una 3er clase u objeto  que haga uso d estos 2, si serian polimórficas en el método “comer”, no así en generalEN ESTE CASO no hay un 3ero que las use, por ende no hay polimorfismo, si hubiera una 3er clase u objeto  que haga uso d estos 2, si serian polimórficas en el método “comer”, no así en general
+
+
+
+
+
+
+
+
+Dato importantisimo: en caso de que pueda dar error, para que no trabe ejercicio
+
+    def css(self): #si gr es >0 todo ok y calcula normalmente,                                       
+        if self.grAc >0:
+            return self.kmAc/self.grAc
+        else:                    # en caso que el gr no sea <0 retornara None,
+            return None  # con el fin de que no de error por tener denominador 0 o menor
+
+
+1ra parte
+Ej 5 lo se, pero no me tomo
+
+Objetos son nro, str, bool, listas y diccio
+
+Objeto_de_referencia.mensaje()
+#retornara true o flase por ejemplo
+celular_de_eli.tiene_bateria_maxima()
+
+"mumuki".upper()  -> #es lo mismo que ->str.upper("mumuki")
+numeros.append(32) #agrega tal nro a lista nros
+
+hay mensajes que modifican objetos pero no retornan nada #ej: calular.cargar()
+
+#los objetos no entienden cualquier mensaje ->los mensajes que entiende se llaman “interfaz”
+
+2da parte
+Los objetos tienen atributos y al conjunto de los mismos se los denomina estado. Los atributos también son objetos y nos permiten guardar valores y representar características del objeto que los posea.
+
+Para acceder a los atributos-> objeto.atributo ->  ej: celular_de_eli.bateria #en este caso me dira cuanta batería tiene
+
+Ahora te toca a vos, creá al celular_de_lu que inicialmente tiene 50% de batería y $80 de saldo.        -> celular_de_lu=Celular(50, 80)    #bateria y saldo son atributos de sus instancias
+#Celular es una clase:
+class Celular:
+  def __init__(self, bateria, saldo, sistema_operativo):
+    self.bateria=bateria
+    self.saldo=saldo
+    self.sistema_operativo=sistema_operativo#para que indique sist operativo
+
+def tiene_bateria_maxima(self): #devuelve True si es max
+    return self.bateria == 100
+  
+  def cargar_a_tope(self): #la carga al 100
+    self.bateria=100
+  
+  def necesita_saldo(self): #devuelve True si es 0
+    return self.saldo==0
+
+  def cargar_saldo(self, un_saldo): #le suma al saldo actual lo recibido como argumento
+    self.saldo+=un_saldo 
+
+Celular es un molde que nos permite crear objetos. Estos moldes se denominan clases y cada objeto que creamos a partir de ellas es una instancia
+Las clases se escriben con su 1er letra mayúscula-> ej:class Celular
+#__init__ -> es el constructor de una clase y nos permite darle valores iniciales a los atributos de sus instancias a la hora de crearlas
+#self -> parámetro obligatorio que nos permite acceder a los atributos del objeto que estamos instanciando
+Los atributos siempre y en todos momento van con un self antes (excepto en la parte del init que hago self.atributo=atributo)
+
+Aux:
+def volar_hacia(self, destino):
+    self.ciudad=destino #atributo ciudad pasa a ser el destino ingresado por parámetro
+
+3ra parte:
+#dado que ya estaba definido mensaje “comer”, pido que a tal animal, le de tantos gramos
+class EstudianteDeVeterinaria:
+  def alimentar(self, animal, gramos):
+animal.comer(gramos)
+
+capacidad de un objeto de poder enviarle el mismo mensaje indistintamente a objetos de distintas clases se llama polimorfismo
+
+aux:
+class EstudianteDeVeterinaria:
+  def alimentar(self, animal, gramos):
+    animal.comer(gramos)
+    
+  def rehabilitar(self, animal):#dado método rehabilitar en el siguiente clase, definiremos                                                                                    animal.recibir_rehabilitacion() # recibir_rehabilitar() para algún animal
+
+ej:
+si quieo que le reste tanto de gr por caminar y le sume tanto por comer(y xej comer es gr*2)
+class Caballo:
+  def __init__(self,energia):
+    self.energia = energia
+def comer(self,gramos):
+    self.energia += gramos * 2
+del función(self):
+    self.energia-=3 #camina 3 kms
+    self.energia+=10 #come 5 gr (xq comer hace gr*2)
+
+#dado estas 2 clases definidas en las clases definidas van a recibir rehabilitación, es decir q alguien q estudia veterinaria los va  a rehabilitar, y lo mismo en el método rehabilitar en estudiantes de veterinaria
+
+#da alta a cada animal cuando esta feliz, cada felicidad tiene sus razones:
+class EstudianteDeVeterinaria:
+   def puede_dar_el_alta(self, animal):
+       return animal.esta_feliz()
+
+
+#la clase EstudianteDeVeterinaria utiliza a esta interfaz, en este caso como parámetro Animal
+#aux:mensajes comer, recibir_rehabilitacion y esta_feliz los ponemos directamente en la interfaz porque lo entienden todos los animales
+
+class Gato:
+   def __init__(self,energia):
+    self.energia = energia
+  def esta_feliz(self):
+    return self.energia>30#cuando energía >30
+
+class Caballo:
+  def __init__(self,energia):
+    self.energia = energia
+  def esta_feliz(self):
+    return True #siempre feliz
+
+class Golondrina:
+   def __init__(self,energia, ciudad):
+    self.energia = energia
+    self.ciudad = ciudad
+  def esta_feliz(self):
+    return self.ciudad=="Lihuel Calel"  #cuando ciudad es esa
+
+# en este ultimo ej ->la práctica de minimizar el acceso a los atributos de otros objetos se llama encapsulamiento y a lo largo de nuestro recorrido fomentaremos que se respete
+
+Ej3.12
+#Del equipo de cocina sabemos que:
+cada chef tiene un atributo plato_del_dia;
+las instancias de Chef pueden picantear ese plato solo si no está demasiado picante, en caso de estarlo arrojan una excepción que dice El plato ya está demasiado picante;
+las instancias de AyudanteDeCocina no tienen atributos ya que pueden suavizar cualquier plato que reciban como argumento.
+Mientras que de los platos podemos contar lo siguiente:
+las Pastas tienen un atributo ajies que inicialmente es 0;
+están demasiado picantes cuando tienen más de 10 ajies;
+al ser picanteadas aumenta en 5 su cantidad de ajies y al ser suavizadas pierden 1;
+las Pizzas tienen condimento que inicialmente es "adobo";
+se considera que una pizza está demasiado picante si su condimento es "cayena";
+al suavizar una pizza su condimento pasa a ser "orégano" y al picantearla, "cayena".
+
+ Acá hago ej:
+class Chef: 
+  def __init__(self, plato_del_dia): #pone de argumento su atributo, dado que es distinto para cada chef 
+    self.plato_del_dia=plato_del_dia
+    
+  def picantear(self):
+    if not self.plato_del_dia.esta_picante(): #si no esta picante:
+      self.plato_del_dia.picantear()      #picantearlo
+    else:
+      raise Exception("El plato ya está demasiado picante") #de lo contrario, tirar excepcion
+
+class AyudanteDeCocina: #no tiene atributos
+  def suavizar(self, plato): #ayudante de cocina suaviza cualquier plato
+    plato.suavizar()
+ # def suavizar(self, plato_del_dia):
+  #  self.plato_del_dia=plato_del_dia    
+ #   self.plato_del_dia.suavizar()
+
+  
+class Pasta: #no pone como argumento su atributo xq siempre arranca con 0
+  def __init__(self): #ajies en principio son 0
+    self.ajies=0
+    
+  def picantear(self): #sumo 5 ajies
+    self.ajies+=5
+    
+  def suavizar(self): #resto 1 aji
+    self.ajies-=1
+    
+  def esta_picante(self): #al tener mas de 10 se considera picanta
+    return self.ajies>10
+    
+    
+class Pizza:#no pone como argumento su atributo xq siempre arranca con "adobo"
+  def __init__(self): #inicialmente tiene tal condimento
+    self.condimento="adobo"
+  def picantear(self):              #le meto tal condimento pata picantear y tal para suavizar
+    self.condimento="cayena"
+  def suavizar(self):
+    self.condimento="oregano"  
+  def esta_picante(self):                      #si tiene tal condimento se considera picante
+    return self.condimento=="cayena"
+    
+################
+  def recibir_danio(self, unidades): #agrego parámetro unidades para forzar polimorfismo x eso
+    self.clorofila-=10  #mismos parámetros que este mismo método para zombie y superzombie
+ej:#si no es un peligro, recibe daño de tanto y aumenta adrenalina a tanto
+class Sobreviviente:
+  def __init__(self, adrenalina):
+    self.adrenalina=adrenalina
+    
+  def atacar(self, Zombie):
+    if not Zombie.es_un_peligro():
+      Zombie.recibir_danio(self.adrenalina/2)
+      self.adrenalina+=20
+
+aux:excepción:
+  def atacar(self, Zombie):
+    if not Zombie.es_un_peligro():
+      Zombie.recibir_danio(self.adrenalina/2)
+      self.adrenalina+=20
+    else:
+       raise Exception('Es peligroso atacar a este zombi') #excepcion
+
+4ta parte:
+
+#clase madre “Ave” y clases hijas”Condor” y “Halcon”
+#energia inicial y volar es igual para ambas, por eso->
+class Madre(hija)
+#dormir lo hacen distinto
+class Ave:
+  def __init__(self, energia):
+    self.energia = energia
+  def volar(self):
+    self.energia -= 20
+
+class Condor(Ave):
+  def dormir(self,minutos):
+   self.energia += minutos * 3
+
+class Halcon(Ave):
+  def dormir(self,minutos):
+   self.energia += minutos
+
+clases abstractas(ave) porque nunca las intanciaremos
+a diferencia de las clases concretas(condor o halcón) que si instanciaremos
+clase abstractas proveen comportamiento a sus subclases
+clase concretas se utilizan para crear instancias
+
+#aux :
+  def tiene_bateria(self):
+    return self.bateria >20
+  def sin_carga(self):
+    if not self.tiene_bateria():
+      return True
+
+Ej4.11
+super en el método de una subclase, se evalúa el método con el mismo nombre de su superclase
+ej:
+class Saludo:
+  def saludar(self):
+    return "Buen día"
+
+class SaludoDocente(Saludo):
+  def saludar(self):
+    return super().saludar() + " estudiantes"
+De esta forma, al enviar el mensaje saludar a SaludoDocente, super invoca el método saludar de su superclase, Saludo. 
+
+ mi_saludo = SaludoDocente()
+ mi_saludo.saludar()
+"Buen día estudiantes"
+
+
+Ej de herencia:
+class MedioDeTransporte:
+  def __init__(self,combustible): #combus inicial (atributo)
+    self.combustible=combustible
+#esta siguiente funcion se puede poner como no
+  #def combustible_actual(self): #cant combust (getter)
+    #return self.combustible
+  def entran_personas(self, personas): #entra si personas ingresamos x parámetro <=maxpersonas
+    return personas<=self.maximo_personas()
+  def cargar_combustible(self, cantidad): #tiene q poder cargar combustible ingresada x parámetro	
+    self.combustible+=cantidad
+class Moto(MedioDeTransporte):
+  def maximo_personas(self): #metodo devuelve 2 (maxpersonas es el mismo que aparece en clase madre)
+    return 2
+  def recorrer(self, km): #combustible lo hereda y lo modifica de tal forma
+    self.combustible-=km
+class Auto(MedioDeTransporte):
+  def maximo_personas(self):
+    return 5
+
+  def recorrer(self, km):
+    self.combustible-= km/2
+
+aux:colectivo dentro de clave medio de transporte, q le entran 20 personas
+class Colectivo(MedioDeTransporte):
+  def maximo_personas(self):
+    return 20
+
+
+saber usar super():
+Al utilizar super en el método de una subclase, se evalúa el método con el mismo nombre de su superclase. Por ejemplo:
+class Saludo:
+  def saludar(self):
+    return "Buen día"
+class SaludoDocente(Saludo):
+  def saludar(self):
+    return super().saludar() + " estudiantes"
+
+mi_saludo = SaludoDocente()
+ mi_saludo.saludar()
+"Buen día estudiantes"
+
+
+ej:usando super, con combustible y pasajeros inicial, para método cargar debe pasar a tener 0 pasajeros
+class Colectivo(MedioDeTransporte):
+  def __init__(self): #combus inicial (atributo)
+    self.combustible=100
+    self.pasajeros=0
+  def entran_personas(self, pasajeros): #entra si personas ingresamos x parámetro <=maxpersonas
+    return True
+  def recorrer(self, kms):
+    self.combustible-=kms*2
+  def cargar_combustible(self, cantidad): #tiene q poder cargar combustible ingresada x parámetro  
+    self.pasajeros=0
+    return super().cargar_combustible(cantidad)
+
+#otro ej de super:
+Volvamos a las aves un momento e imaginemos que los halcones siempre tienen una energía inicial igual a 80. Para evitar repetir lógica entre las clases Ave y Halcon podríamos hacer lo siguiente:
+class Ave:
+  def __init__(self, energia):
+    self.energia = energia
+  def volar(self):
+    self.energia -= 20
+class Halcon(Ave):
+  def __init__(self):
+    super().__init__(80) #acaaa
+  def dormir(self,minutos):
+   self.energia += minutos
+class Condor(Ave):
+  def dormir(self,minutos):
+   self.energia += minutos * 3
+
+herencia:
+class Zombi:
+  def __init__(self, un_hambre):
+    self.hambre = un_hambre
+
+  def sabe_correr(self):
+    return True
+
+  def es_un_peligro(self):
+    return self.hambre > 50
+
+  def recibir_danio(self,puntos_de_danio):
+    self.hambre -= puntos_de_danio * 2
+  def descansar(self, minutos):
+    self.hambre+=minutos
+    
+
+class SuperZombi(Zombi):
+ # def __init__(self,un_hambre):
+  #  self.hambre = un_hambre
+
+ # def sabe_correr(self):
+  #  return True
+
+  def es_un_peligro(self):
+    return True
+
+  def recibir_danio(self,puntos_de_danio):
+    self.hambre -= puntos_de_danio
+
+  def regenerarse(self):
+    self.hambre = 100
+
+5ta mumuki
+#ej: Definí la clase Biblioteca de forma tal que entienda el mensaje agregar_libro. No te olvides del constructor que inicialice el atributo libros como una lista vacía.
+class Biblioteca:
+  def __init__(self):
+    self.libros=[]
+  def agregar_libro(self, nro):
+    self.libros.append(nro)
+
+
+ej con lista por comprensión y diccio:
+class Biblioteca:
+  def __init__(self):
+    self.libros=[]
+  def agregar_libro(self, libro):
+    if libro not in self.libros:#solo agrega libro si no estaba en lista de libros
+      self.libros.append(libro)  
+
+  def libros_largos(self):
+    return [libro for libro in self.libros if libro.es_largo()]
+#ejemplo de filtrado en lista de compresion  
+#para cada libro de nuestra lista de libros, si hay algun libro largo, retornalo
+#aux:utiliza funcion de es:largo de clase libro
+  def titulos_disponibles(self):
+    return [libro.titulo for libro in self.libros]
+#ejemplo de mapeo en lista de compresion:  
+#para cada libro en nuestra lista de libros, retorna el titulo de cada libro  
+#aux:utiliza titulo, dado en lase de abajo
+
+
+class Libro:
+  def __init__(self, titulo, paginas, genero, autoria):
+    self.titulo=titulo
+    self.paginas=paginas
+    self.genero=genero
+    self.autoria={"nombre":autoria["nombre"], "apellido":autoria["apellido"], "nacionalidad":autoria["nacionalidad"]}
+ #forma -> valor:diccio[clave]   
+  
+  def es_largo(self):
+    return self.paginas>300
+  def nacionalidad(self):
+    return self.autoria["nacionalidad"]
+  #me retorna el valor de la nacionalidad en dicho diccio de autoria
+
+
+Lista por compresión:
+#obtener el doble de los números mayores a 5 de una lista numeros podríamos hacer
+[numero * 2 for numero in numeros if numero > 5]
+
+Los sets son muy parecidos a las listas, pero tienen dos particularidades que los diferencian:
+no tienen elementos repetidos;
+sus elementos no están ordenados.
+Dados:
+set_vacio =set()
+un_set = set([1,2,3,4])
+ otro_set = set([1,2,3,1,2,3])
+
+set_vacio.add("hola")->set_vacio->{'hola'}
+un_set.remove(4)->{1,2,3} #(un_set era ={1,2,3,4})
+un_set.issubset(otro_set) #(issubset siginificaesta dento de->retorna bool )
+
+
+#Modificá la clase Biblioteca para que sus libros sean un set.
+class Biblioteca:
+  def __init__(self):
+    self.libros=set()
+  def agregar_libro(self, libro):
+    self.libros.add(libro)
+    
+
+
+
+Las tuplas son similares a las listas pero tienen una particularidad,son inmutables. En criollo, las tuplas no se pueden modificar por lo que:
+no podemos agregarles ni quitarles elementos;
+no podemos modificar el valor de sus elementos
+usar tupla cuando quisiéramos usar una lista pero ya sabemos de antemano cuántos y qué elementos va a tener.
+Las tuplas se pueden representar de tres formas:
+ tupla_1 = ("Violeta", "Amarillo") ->  tupla_1[0]->'Violeta'
+ tupla_2 = "Naranja", "Azul"->si busco posiciones da error
+ tupla_3 = tuple((22, 22, True))-> tupla_3[2]->True ->si pongo: tupla_3[2]=False  dará Error q tupla es inmutable
+
+ej: tupla#retorna 1era letra de nombre, segundo nombre y apellido 
+class Persona:
+  def __init__(self, un_nombre, un_segundo_nombre, un_apellido):
+    self.nombre = un_nombre
+    self.segundo_nombre = un_segundo_nombre
+    self.apellido = un_apellido
+  def iniciales(self):
+    return (self.nombre[0],self.segundo_nombre[0],self.apellido[0])
+
+últimos 2 ejs:
+class Juguete:
+  def __init__(self, nombre, precio_minorista, precio_mayorista, partes):
+    self.nombre = nombre
+    self.precio_minorista = precio_minorista
+    self.precio_mayorista = precio_mayorista
+    self.partes = partes
+  def es_barato(self):
+    return (self.precio_minorista<1000 and self.precio_mayorista<600) #defino barato
+  def precios_con_iva(self):
+    return (self.precio_minorista*1.21, self.precio_mayorista*1.21) #tupla multiplicado lo q indica
+  def es_electronico(self):
+    return "bateria" in self.partes #dentro de sus partes aparece "bateria
+    
+
+otro ej:
+class Jugueteria:
+  def __init__(self):
+    self.productos=[]
+  def adquirir_producto(self, producto):
+    self.productos.append(producto)
+  def catalogo_de_oferta(self):
+    return [producto.nombre for producto in self.productos if producto.es_barato()]
+  #para cada producto en la lista de productos, si producto es barato(funcion dentro de clase juguete), retorna el nombre(atributo de juguete) del producto
+
+
+
