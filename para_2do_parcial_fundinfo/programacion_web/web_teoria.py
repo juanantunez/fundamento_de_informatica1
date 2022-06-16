@@ -19,7 +19,7 @@
 #'https://macowins-server.herokuapp.com/prendas' #en este caso me devuelve una lista de diccionarios con todas las prendas
 
 #estructura:
-
+"""
 import requests #biblioteca que necesitamos para hacer pedidos
 pedido = requests.get('https://macowins-server.herokuapp.com/prendas/1')#“get” es pedir un recuso() #ingreso URL de dato->que en este caso pide una prenda en especifico
 print(pedido) #me devuelve el <Response[nro]>
@@ -32,7 +32,6 @@ pedido = requests.get('https://macowins-server.herokuapp.com/prendas/1')#“get�
 print(pedido)
 print(pedido.json()) #"json()" es el formato en el cual los servidores devuelven la informacion al cliente
 
-"""
 #Se correlaciona las url con los verbos http->verbo http es get:get filtro la tabla y me trajo ese recurso en particular
 
 me devuelve:
@@ -93,15 +92,67 @@ print(pedido.status_code) # pide el solo el nro del status_code q devolvia entre
 
 me devuelve:
 ese nro de statud_code (ya sea 200 o 404, etc)->en este caso 200
+
+import requests #biblioteca que necesitamos para hacer pedidos
+pedido = requests.get('https://macowins-server.herokuapp.com/prendas?tipo=pantalon')#“get” es pedir un recuso() #ingreso URL de dato->en este caso me devuelve una lista de diccionarios con todas las prendas que el que dentro dentro del diccio en la clave 'tipo' es 'pantalon'->esto se da porq agrego luego de prendas "?tipo=pantalon"
+print(pedido.json())
+
+import requests
+r = requests.get('https://macowins-server.herokuapp.com/nueva-funcionalidad-que-a-veces-no-anda-bien')
+print(r.content) #content: me da el contenido del pedido 
+
+import requests
+r = requests.get('https://macowins-server.herokuapp.com/prendas?talle=40&tipo=pantalon')
+print(r.json())
+
+import requests
+r = requests.get('https://macowins-server.herokuapp.com/ventas/?_page=3')#solo la pagina 3
+print(r.json())
+
+#lo que pongo ahora es un URI:
+import requests
+r = requests.get('protocolo://dominio:puerto/ruta#fragmento?parametro1=valor1&parametro2=valor2')
+print(r.json())
+
+#lo que pongo ahora es un URI:
+import requests
+r = requests.get('cerebro://recuerdos:3403/recientes#hoy?tema=http')
+print(r.json())
+
+import requests
+requests.get('http://localhost:300')
+raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=300): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb528ea62e8>: Failed to establish a new connection: [Errno 111] Connection refused',))
+
+import requests
+requests.get('http://unSitioQueProbablementeNoExistaEnInternet')
+raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='unsitioqueprobablementenoexistaeninternet', port=80): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb528e84a90>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+import requests
+requests.get('http://google.com:8902',timeout=5)
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='google.com', port=8902): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7fb5297f3cc0>: Failed to establish a new connection: [Errno 101] Network is unreachable',))
+
+import requests
+data = {'id': 21}
+r = requests.post('https://macowins-server.herokuapp.com/prendas/', data=data) #crea una prenda con el id 21 y la agrega al pedido
+
+import requests #biblioteca que necesitamos para hacer pedidos
+pedido = requests.get('https://macowins-server.herokuapp.com/prendas')#“get” es pedir un recuso() #ingreso URL de dato->en este caso me devuelve una lista de diccionarios con todas las prendas
+print(pedido)
+print(pedido.json())
+
+import requests
+data =  { "tipo": "chomba", "talle": "XS" }
+r = requests.post('https://macowins-server.herokuapp.com/prendas', data=data) #agrega al pedido con diccios con id que no nos sirve
+print(r.json())
+
+import json, requests
+headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+data =  { "tipo": "chomba", "talle": "XS" }
+r = requests.post('https://macowins-server.herokuapp.com/prendas', data=json.dumps(data), headers=headers)
+r.status_code
+201
+requests.get('https://macowins-server.herokuapp.com/prendas').json()
 """
-
-
-
-
-
-
-
-
-
-
-
