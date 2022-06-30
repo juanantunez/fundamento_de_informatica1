@@ -1,0 +1,21 @@
+Preguntas teoricas HTTP:
+
+Protocolo HTTP
+Verbos que se corresponden con las url y con ciertas operaciones
+
+Aplicacion y pagina: diferencia es q :
+#aplicacion tiene un servidor. Un sitio es un conjunto de paginas
+Servidor responde a cliente con ciertos datos que tenga 
+#Pagina: pagina es un HTTP 
+Tiene verbos asociados 
+
+#post(agrega elementos a la base de datos o cambiar), 
+Se aplica a url a  En un recurso especifico ej prendas/1
+
+#delete(elimina un elemento de la base de datos),
+Se aplica a url a  /prendas/1
+
+#get(consulta ) 
+Se aplica a url a  Puedo hacer en prendas o prendas/1 
+
+(aux: tmbn esta put(cambiar)pull pero no lo vimos)

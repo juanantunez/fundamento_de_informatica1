@@ -1,0 +1,62 @@
+
+/*#Entro a pag click derecho inspecciono
+#Pongo swith tools to spanish para poder leer en español
+#toco arriba a izq el tick y selecciono la parte que quiera tratar de mi pagina
+#o otra opcion es cuando inspeccionas, tocar sobre el codigo html la parte que queres modificar
+#en estilo, escribo background color, toco el tab, y escribo color
+#Para ir directo a la pag toco go live y port   */
+
+/*  auxiliar:
+#margin es distancia entre margen exterior y recuadro especifico con sus letras
+#padding es distancia que deja entre recuadro que estoy creando y el texto que le meto(o fotos, etc)
+
+tanto margin como padding tienen esta dinamica :
+al ingresar 4 porcentajes: nro1%(alto) nro2%(der) nro3%(abajo) nro4%(izq)#nro1 es el alto
+al ingresar 2 porcentajes:nro1%(lo que deja a arriba y lo que deja abajo) nro2%(lo que deja a der y lo que deja a izq)*/
+
+
+body{ /* en el body siempre llevar el margin y el padding a 0 para evitar errores   ->aux:el body es donde esta lo que aparece en pag*/
+    margin: 0;  
+    padding: 0;
+    background-color: blue; /* en este caso pongo todo el fondo de azul y lo q no sea azul lo especifico despues */
+    
+}
+
+h1{
+    background-color: red;/* selecciono color de fondo */
+    width: 40%;              /*pongo % que cuanto mas grande sea nro, mas espacio hacia la derecha se ampliara el recuadro de h1  */
+    margin-left: -1%;        /* #espacio a izquierda  del recuadro de h1 en conjunto con sus letras(si pongo valor negativo es al reves, es decir, le quita espacio de la izq) aux: margin es distancia entre margen exterior y recuadro especifico con sus letras */
+    height: 67px;            /* agranda el alto del recuadro de h1 */
+    padding-top: 5px;        /* distancia que deja  a izq antes dentro de recuadro de h1 antes q empieze texto de h1  aux:padding es distancia que deja entre recuadro que estoy creando y el texto que le meto(o fotos, etc) */
+    padding-left: 20px;      /* ( distancia que deja  a izq antes dentro de recuadro de h1 antes q empieze texto de h1) */
+    font-size: 44px;         /* (agranda la letra del texto que esta dentro de h1)
+    */
+}
+
+h2{
+    color: white;  /* pongo la letra de h2 color blanco (el fondo seguira siendo azul por el body) */
+    padding-left: 20px;
+    font-size: 25px;}
+
+.sucursales{ 
+    background-color: antiquewhite;
+    width: 100%;
+    height: 25vw;         /* vw es una unidad de medida  */
+    padding-left: 3%;
+    padding-top: 2%;}
+
+h3{
+    color:blue
+}
+
+p{
+    color:blue
+}
+
+
+h6{
+    color: white;
+    padding-left: 200px;
+    font-size: 20px;
+}
+
