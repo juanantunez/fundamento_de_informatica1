@@ -8,8 +8,10 @@ body {
     border: black 3px dotted; /*border:color de los bordes y dotted es punteado*/
     padding-left: 33px;  /*“padding” es margen entre cajita y recuadro*/
 }
+
 .galeria img{    /* de galeria mira las imagenes */
-    width: 356px; /* ancho width */
-    height: 261px; /* Alto height */
+    width: 356px; /* ancho de imagen (lo que la estira hacia la derecha) width */
+    height: 261px; /* Alto de imagen (lo que la estira hacie abajo) height */
+    margin-left: 5px; /*#distancia que deja entre la izquierda de todo hasta donde arranca imagen*/
 }
 
