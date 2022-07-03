@@ -1,0 +1,17 @@
+body {
+    margin-left: 20px; /*“margin” es el margen entre recuadro y afuera ->Margen a la izq:20 px*/
+
+} /*#distancia que se mueve desde arranque de body hacia la derecha*/
+.titulo{
+    margin-left: 20px; /*#distancia que deja entre la izquierda de todo hasta donde arranca el body(recuadro de todo)*/
+    background-color: antiquewhite; /*#background-color:color de fondo para el titulo*/
+    border: black 3px dotted; /*border:color de los bordes y dotted es punteado*/
+    padding-left: 33px;  /*“padding” es margen entre cajita y recuadro*/
+}
+
+.galeria img{    /* de galeria mira las imagenes */
+    width: 356px; /* ancho de imagen (lo que la estira hacia la derecha) width */
+    height: 261px; /* Alto de imagen (lo que la estira hacie abajo) height */
+    margin-left: 5px; /*#distancia que deja entre la izquierda de todo hasta donde arranca imagen*/
+}
+
